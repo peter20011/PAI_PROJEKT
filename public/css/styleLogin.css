@@ -1,0 +1,226 @@
+@import url(https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap);
+
+:root {
+    --app-bg-color: #272729;
+    --app-bg-color-ligther: #303035;
+    --app-bg-color-darker: #202020;
+    --app-font-color: #faf7ff;
+    --app-font-family: "Quicksand",sans-serif;
+    --app-acc-color: #8685ef;
+    color: #faf7ff;
+    color: var(--app-font-color);
+    font-family: Quicksand,sans-serif;
+    font-family: var(--app-font-family);
+    font-size: 10px;
+    font-weight: 400;
+    background-color: #272729;
+    padding-top: 20vh;
+}
+
+a,
+a:visited {
+ outline:none;
+ text-decoration:inherit
+}
+:link>linktext,
+a,
+a:visited {
+ color:inherit
+}
+
+button {
+ border:none;
+ color:var(--app-button-font-color);
+ font-family:Quicksand,sans-serif;
+ font-family:var(--app-font-family);
+ outline:none
+}
+
+.Page-topbar{
+flex-shrink: 0;
+justify-content: flex-end;
+padding: 3rem 7rem;
+position: relative;
+z-index: 1;
+}
+
+#root {
+    display:flex;
+    min-height:100vh
+}
+
+.PageContainer{
+align-items: center;
+border-radius: 1.5rem;
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+height: 100%;
+justify-content: center;
+margin: 0 5rem 4.5rem;
+width: calc(100% - 14rem);
+}
+
+.Login-section{
+align-items: center;
+border-radius: 1.5rem;
+box-sizing: border-box;
+display: flex;
+flex-direction: row;
+height: 100%;
+justify-content: space-around;
+padding: 0;
+width: 50%;
+}
+
+
+.ContainerBox{
+background-color: var(--app-bg-color);
+box-shadow: -10px 10px 20px #1f1f2133,10px -10px 20px #1f1f2133,
+            -10px -10px 20px #2f2f31e6,10px 10px 25px #1f1f21e6,inset 1px 1px 2px #2f2f314d,inset -1px -1px 2px #1f1f2180;
+            align-items: center;
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 6rem;
+width: 60em;
+}
+
+.Login-Title{
+font-size: 4em;
+font-weight: 600;
+line-height: 1.5em;
+margin: 0 0 .6em;
+}
+
+
+.Login-form{
+display: flex;
+flex-direction: column;
+gap: 2.6em;
+justify-content: space-between;
+text-align: center;
+width: 42em;
+}
+
+.Input-container{
+    position: relative;
+}
+
+.Input_input{
+background-color: var(--app-bg-color-darker);
+border: none;
+border-radius: 15px;
+box-sizing: border-box;
+color: var(--app-font-color);
+font-family: var(--app-font-family);
+font-size: 2em;
+font-weight: 600;
+outline: none;
+padding: 1.1em;
+}
+
+.Login-checkBox{
+margin-top: .2em;
+cursor: pointer;
+margin: 0 .8em 0 0;
+position: relative;
+vertical-align: bottom;
+}
+
+.Login-formOptions{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    justify-content: space-between;
+}
+
+.ButtonLogin{
+align-items: center;
+background-color: var(--app-acc-color);
+border-radius: 1.5rem;
+box-shadow: -5px 5px 10px #1d1d1d33,5px -5px 10px #1d1d1d33,-5px -5px 10px #232323e6,5px 5px 13px #1d1d1de6,inset 1px 1px 2px #2323234d,inset -1px -1px 2px #1d1d1d80;
+box-sizing: border-box;
+display: flex;
+font-size: 2.4rem;
+font-weight: 500;
+height: 4rem;
+justify-content: center;
+overflow: hidden;
+padding: 0 2rem;
+text-transform: uppercase;
+white-space: nowrap;
+}
+
+.Login-optionlink{
+align-items: flex-end;
+display: flex;
+flex-direction: column;
+height: 100%;
+justify-content: space-between;
+padding-right: 1em;
+flex-direction: column;
+justify-content: flex-start;
+}
+
+.signup{
+font-size: 1.4em;
+text-decoration: underline;
+color: #8685ef;
+}
+
+
+.Login-logo{
+    height: 40vh;
+    margin-left: 15vw;
+}
+
+.Logo-small{
+    display: none ;
+}
+
+
+@media only screen and (max-device-width: 420px ){
+    
+    body{
+        margin: 0;
+    }
+
+    .root{
+        padding: none;
+    }
+
+    .Login-logo{
+        display: none;
+    }
+
+    .Login-form{
+        height: auto;
+        width: auto;
+    }
+    
+    .PageContainer{
+        padding-top: auto ;
+        margin-left: auto ;
+        margin-right: auto;
+        margin-top: 3vh;
+    }
+
+    *{
+        font-size: 20px;
+    }
+
+
+    
+    .Logo-small{
+        margin-bottom: 0;
+        padding-bottom: 15vh;
+        padding-top: 0;
+        display: inline;
+        height: 20%;
+        position: relative;
+        text-align: center;
+    }
+}

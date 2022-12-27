@@ -3,36 +3,46 @@
     <head>
         <meta charset="utf-8">
         <meta name="description" content="Find the band you want">
+        <meta name="keywords" content="band">
         <title>BOOKBAND - LOGIN PAGE</title>
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/styleLogin.css">
     </head>
     <body>
-        <div class="PageContent">
-            <section class="Login-section">
-                <section class="ContainerBox" style="width: 60em;">
-                    <h1 class="Login-Title">Log in</h1>
-                    <form class="Login-form">
-                        <div class="Input container">
-                            <input class="Input_input" type="text" name="usernameLog" placeholder="Username or Emial" required="">
-                        </div>
-                        <div class="Input container">
-                            <input class="Input_input" type="password" name="passwordLogin" placeholder="Password" required="">
-                        </div>
-                        <label class="Login-checkBox">
-                            <input type="checkbox">
-                            <em>Show password?</em>
-                        </label>
-                        <button class="ButtonLogin" type="button">
-                            Login
-                        </button>
-                        <div class="Login-optionlink">
-                            <a href="/signup">Sign up</a>
-                            <a href="/recover">Reset my password</a>
-                        </div>
-                    </form>
-                </section>
-                    <img class="Login-logo" src="../img/logo.svg" alt="Book Band">
-            </section>
+        <div id="Page_topbar">
+            <img class="Logo-small" src="../img/logo.svg" >
         </div>
+            <div id="container">
+                    <div id="root">
+                        <div class="PageContainer">
+                            <section class="Login-section">
+                                <section class="ContainerBox">
+                                    <h1 class="Login-Title">Log in</h1>
+                                    <form class="Login-form">
+                                        <div class="Input-container">
+                                            <input class="Input_input" type="text" name="usernameLog" placeholder="Username or Emial" required="">
+                                        </div>
+                                        <div class="Input-container">
+                                            <input class="Input_input" type="password" name="passwordLogin" placeholder="Password" required="">
+                                        </div>
+                                        <label class="Login-checkBox">
+                                            <input type="checkbox">
+                                            <em>Show password?</em>
+                                        </label>
+                                        <div class="Login-formOptions">
+                                            <button class="ButtonLogin" type="button">
+                                                Login
+                                            </button>
+                                            <div class="Login-optionlink">
+                                                <a href="signup">Sign up</a>
+                                                <a href="recover">Reset my password</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </section>
+                                    <img class="Login-logo" src="../img/logo.svg">
+                            </section>
+                        </div>
+                    </div>
+            </div>  
     </body>
 </html>
