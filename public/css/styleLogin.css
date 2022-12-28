@@ -184,9 +184,7 @@ color: #8685ef;
 
 @media only screen and (max-device-width: 420px ){
     
-    body{
-        margin: 0;
-    }
+    
 
     .root{
         padding: none;
@@ -209,7 +207,7 @@ color: #8685ef;
     }
 
     *{
-        font-size: 20px;
+        font-size: 10px;
     }
 
 
