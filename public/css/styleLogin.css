@@ -183,8 +183,8 @@ color: #8685ef;
 
 @media only screen and (max-device-width: 440px ){
 
-    .root{
-        display: flex;
+    :root{
+        padding-top: 0;
     }
     .Page-topbar{
         margin-top: 0;
