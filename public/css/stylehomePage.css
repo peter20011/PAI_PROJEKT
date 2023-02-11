@@ -163,6 +163,36 @@ letter-spacing: .1rem;
 width: 31rem;
 }
 
+button {
+    border:none;
+    color:var(--app-button-font-color);
+    font-family:Quicksand,sans-serif;
+    font-family:var(--app-font-family);
+    outline:none
+}
+
+.ButtonChange{
+    align-items: center;
+    background-color: var(--app-acc-color);
+    border-radius: 1.5rem;
+    box-shadow: -5px 5px 10px #1d1d1d33,5px -5px 10px #1d1d1d33,-5px -5px 10px #232323e6,5px 5px 13px #1d1d1de6,inset 1px 1px 2px #2323234d,inset -1px -1px 2px #1d1d1d80;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 2.4rem;
+    font-weight: 500;
+    height: 4rem;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 2rem;
+    text-transform: uppercase;
+    margin: 0 auto;
+}
+
+
+footer{
+    margin: 15px 0;
+}
+
 @media only screen and (max-device-width: 440px ){
 .Home-null{
     display: none;
