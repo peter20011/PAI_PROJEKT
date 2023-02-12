@@ -5,11 +5,11 @@ require_once 'AppController.php';
 class DefaultController extends AppController {
 
     public function index(){
-        $this->render('changePassword');
+        $this->render('login');
     }
 
-    public function homepage()
-    {
+    public function chooseBandOrUser(){
         $this->render("chooseBandOrUser");
     }
+
 }

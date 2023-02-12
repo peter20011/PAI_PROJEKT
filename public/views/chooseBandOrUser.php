@@ -19,16 +19,16 @@
                                     <h1 class="Choose-Title">Choose who you are?</h1>
                                     <form class="Choose-form">
                                         <div class="Choose-formOptions">
-                                            <button class="ButtonChoose1" type="button">
+                                            <a class="ButtonChoose1" href="registrationBand" >
                                                 BAND
-                                            </button>
-                                            <button class="ButtonChoose2" type="button">
+                                            </a>
+                                            <a class="ButtonChoose2" href="registrationUser">
                                                 USER
-                                            </button>
+                                            </a>
                                         </div>
                                     </form>
                                     <div class="SignUp-optionlink">
-                                        <a href="Login">Back</a>
+                                        <a href="login">Back</a>
                                     </div>
                                 </section>
                                     <img class="Login-logo" src="public/img/logo.svg">

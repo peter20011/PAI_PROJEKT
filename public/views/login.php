@@ -20,23 +20,32 @@
                             <section class="Login-section">
                                 <section class="ContainerBox">
                                     <h1 class="Login-Title">Log in</h1>
-                                    <form class="Login-form">
-                                        <div class="Input-container">
-                                            <input class="Input_input" type="text" name="usernameLog" placeholder="Emial" required="">
+                                    <form class="Login-form" action="login" method="POST">
+                                        <div class="messages">
+                                            <?php
+                                                if(isset($messages)){
+                                                    foreach ($messages as $message){
+                                                        echo $message;
+                                                    }
+                                                }
+                                            ?>
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="password" name="passwordLogin" placeholder="Password" required="">
+                                            <input class="Input_input" type="text" name="email" placeholder="Emial" >
+                                        </div>
+                                        <div class="Input-container">
+                                            <input class="Input_input" type="password" name="password" placeholder="Password">
                                         </div>
                                         <label class="Login-checkBox">
                                             <input type="checkbox">
                                             <em>Show password?</em>
                                         </label>
                                         <div class="Login-formOptions">
-                                            <button class="ButtonLogin" type="button">
+                                            <button class="ButtonLogin" type="submit">
                                                 Login
                                             </button>
                                             <div class="Login-optionlink">
-                                                <a href="signup">Sign up</a>
+                                                <a href="chooseBandOrUser" >Sign up</a>
                                             </div>
                                         </div>
                                     </form>

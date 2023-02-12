@@ -28,7 +28,7 @@ a:visited {
  color:inherit
 }
 
-button {
+button,a{
  border:none;
  color:var(--app-button-font-color);
  font-family:Quicksand,sans-serif;
@@ -108,7 +108,7 @@ flex-direction: row;
 justify-content: space-between;
 }
 
-.Choose-formOptions>button{
+.Choose-formOptions>*{
     align-items: center;
     background-color: var(--app-acc-color);
     border-radius: 1.5rem;

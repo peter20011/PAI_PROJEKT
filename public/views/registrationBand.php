@@ -39,6 +39,9 @@
                                         <div class="Input-container">
                                             <input class="Input_input" type="url" placeholder=" Link to example song" required="">
                                         </div>
+                                        <div class="Input-container">
+                                            <input class="Input_input" type="url" placeholder=" Link facebook fanpage" required="">
+                                        </div>
                                         <label class="SignUp-checkBox">
                                             <input type="checkbox">
                                             <em>Show password?</em>
