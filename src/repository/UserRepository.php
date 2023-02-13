@@ -70,6 +70,7 @@ class UserRepository extends Repository
 
     }
 
+
     public function updatePassword(User $user) {
         $pdo = $this->database->connect();
 

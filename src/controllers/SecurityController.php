@@ -36,7 +36,11 @@ class SecurityController extends SessionController
             return $this->render('login', ['messages' => ["User with this email not exists"]]);
         }
 
-        if (!password_verify($pass,$user->getPassword())) {
+//        if (!password_verify($pass,$user->getPassword())) {
+//            return $this->render('login', ['messages' => ["Wrong password"]]);
+//        }
+
+        if($user->getPassword()!==$pass){
             return $this->render('login', ['messages' => ["Wrong password"]]);
         }
 
@@ -60,7 +64,7 @@ class SecurityController extends SessionController
         $user=$result['user'];
 
         if(!$this->isPost()){
-            $this->render('changePassword');
+           return $this->render('changePassword');
         }
 
         if (!$this->areAllSet(['old_pass','new_pass','new_pass2'])) {
@@ -83,10 +87,19 @@ class SecurityController extends SessionController
             return $this->render('changePassword', ['message' => ['Wrong password']]);
         }
 
-        $hash=password_hash($newPassword,PASSWORD_BCRYPT);
-        $userRepostory= new UserRepository();
+        if(!$oldPassword!==$newPassword){
+            return $this->render('changePassword', ['message' => ['Wrong password']]);
+        }
 
-        $user->setPassword($hash);
+        //$hash=password_hash($newPassword,PASSWORD_BCRYPT);
+        $userRepostory= new UserRepository();
+        $user->setPassword($newPassword);
+        try{
+            $userRepostory->updatePassword($user);
+        }catch (NoMatchingRecordException $e){
+            return $this->render('changePassword', [ 'message' => ['Cannot change password']]);
+        }
+
 
         return $this->render('changePassword', ['message' => ['Password has been changed!']]);
 
@@ -125,10 +138,10 @@ class SecurityController extends SessionController
             return $this->render('registrationUser', ['messages' => ['Passwords are not the same'], 'defaults' => ['username' => $name, 'email' => $email]]);
         }
 
-        $hash = password_hash($password, PASSWORD_BCRYPT);
+        //$hash = password_hash($password, PASSWORD_BCRYPT);
 
         $userRepository = new UserRepository();
-        $user = new User($name, $email, $hash);
+        $user = new User($name, $email, $password); // zmiana
         try {
             $userRepository->addUser($user);
         }
