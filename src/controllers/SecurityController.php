@@ -36,18 +36,16 @@ class SecurityController extends SessionController
             return $this->render('login', ['messages' => ["User with this email not exists"]]);
         }
 
-//        if (!password_verify($pass,$user->getPassword())) {
-//            return $this->render('login', ['messages' => ["Wrong password"]]);
-//        }
 
-        if($user->getPassword()!==$pass){
+        if (!password_verify($pass,$user->getPassword())) {
             return $this->render('login', ['messages' => ["Wrong password"]]);
         }
+
 
         $this->createSession($user);
         $this->changeHeader('homePage');
 
-    }
+    } // na zespoł również
 
 
     //TODO
@@ -75,35 +73,36 @@ class SecurityController extends SessionController
         $newPassword=$_POST['new_pass'];
         $newPassword2=$_POST['new_pass2'];
 
+
         if(!password_verify($oldPassword,$user->getPassword())){
-            return $this->render('changePassword', ['message' => ['Wrong password']]);
+            return $this->render('changePassword', ['messages' => ['Wrong password 1']]);
         };
 
         if (!$this->validatePassword($newPassword)) {
-            return $this->render('changePassword', ['message' => [ 'New password is too weak']]);
+            return $this->render('changePassword', ['messages' => [ 'New password is too weak']]);
         }
 
-        if(!$newPassword!==$newPassword2){
-            return $this->render('changePassword', ['message' => ['Wrong password']]);
+        if($newPassword!==$newPassword2){
+            return $this->render('changePassword', ['messages' => ['Wrong password 2']]);
         }
 
-        if(!$oldPassword!==$newPassword){
-            return $this->render('changePassword', ['message' => ['Wrong password']]);
+        if($oldPassword===$newPassword){
+            return $this->render('changePassword', ['messages' => ['Wrong password 3']]);
         }
 
-        //$hash=password_hash($newPassword,PASSWORD_BCRYPT);
+        $hash=password_hash($newPassword,PASSWORD_BCRYPT);
         $userRepostory= new UserRepository();
-        $user->setPassword($newPassword);
+        $user->setPassword($hash);
         try{
             $userRepostory->updatePassword($user);
         }catch (NoMatchingRecordException $e){
-            return $this->render('changePassword', [ 'message' => ['Cannot change password']]);
+            return $this->render('changePassword', [ 'messages' => ['Cannot change password']]);
         }
 
 
-        return $this->render('changePassword', ['message' => ['Password has been changed!']]);
+        return $this->render('changePassword', ['messages' => ['Password has been changed!']]);
 
-    }
+    } // na zaespół rowniez
 
     public function registrationUser(){
         if (!$this->isPost()){
@@ -138,10 +137,10 @@ class SecurityController extends SessionController
             return $this->render('registrationUser', ['messages' => ['Passwords are not the same'], 'defaults' => ['username' => $name, 'email' => $email]]);
         }
 
-        //$hash = password_hash($password, PASSWORD_BCRYPT);
+        $hash = password_hash($password, PASSWORD_BCRYPT);
 
         $userRepository = new UserRepository();
-        $user = new User($name, $email, $password); // zmiana
+        $user = new User($name, $email, $hash);
         try {
             $userRepository->addUser($user);
         }

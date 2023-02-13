@@ -12,4 +12,5 @@ class DefaultController extends SessionController {
         $this->render("chooseBandOrUser");
     }
 
+
 }

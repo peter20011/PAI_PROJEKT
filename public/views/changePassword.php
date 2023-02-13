@@ -26,16 +26,16 @@
                                             ?>
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="password" name="old_pass" placeholder="Old password" required="">
+                                            <input class="Input_input" type="password" name="old_pass" placeholder="Old password">
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="password" name="new_pass" placeholder="New password" required="">
+                                            <input class="Input_input" type="password" name="new_pass" placeholder="New password" >
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="password" name="new_pass2" placeholder="New password" required="">
+                                            <input class="Input_input" type="password" name="new_pass2" placeholder="New password" >
                                         </div>
                                         <div class="Login-formOptions">
-                                            <button class="ButtonConfirm" type="action">
+                                            <button class="ButtonConfirm" type="submit">
                                                 CONFIRM
                                             </button>
                                             <div class="Login-optionlink">
