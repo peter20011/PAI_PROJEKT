@@ -15,22 +15,22 @@
                             <section class="Login-section">
                                 <section class="ContainerBox">
                                     <h1 class="Login-Title">Change password</h1>
-                                    <form class="Login-form">
+                                    <form class="Login-form" action="changePassword" method="POST">
                                         <div class="Input-container">
-                                            <input class="Input_input" type="text" name="usernameLog" placeholder="Old password" required="">
+                                            <input class="Input_input" type="text" name="old_pass" placeholder="Old password" required="">
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="text" name="passwordLogin" placeholder="New password" required="">
+                                            <input class="Input_input" type="text" name="new_pass" placeholder="New password" required="">
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="text" name="passwordLogin" placeholder="New password" required="">
+                                            <input class="Input_input" type="text" name="new_pass2" placeholder="New password" required="">
                                         </div>
                                         <div class="Login-formOptions">
-                                            <button class="ButtonConfirm" type="button">
+                                            <button class="ButtonConfirm" type="action">
                                                 CONFIRM
                                             </button>
                                             <div class="Login-optionlink">
-                                                <a>Homepage</a>
+                                                <a href="homePage">Homepage</a>
                                             </div>
                                         </div>
                                     </form>

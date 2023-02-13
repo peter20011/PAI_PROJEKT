@@ -9,12 +9,10 @@ class Band
     private $ytLink;
     private $fanpageLink;
     private $bandDescription;
-    private $id;
     private $numberLikes;
 
 
-    public function __construct(string $username, string $email,string $password,string $scheduleLink,string $ytLink,string $fanpageLink, string $bandDescription,
-    int $id, int $numberLikes)
+    public function __construct(string $username, string $email,string $password,string $scheduleLink,string $ytLink,string $fanpageLink, string $bandDescription, int $numberLikes)
     {
         $this->username = $username;
         $this->email = $email;
@@ -23,7 +21,7 @@ class Band
         $this->ytLink = $ytLink;
         $this->fanpageLink = $fanpageLink;
         $this->bandDescription=$bandDescription;
-        $this->id=$id;
+
         $this->numberLikes->$numberLikes;
     }
 
@@ -55,19 +53,6 @@ class Band
     {
         return $this->email;
     }
-
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
 
     public function getNumberLikes()
     {

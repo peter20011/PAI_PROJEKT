@@ -60,9 +60,9 @@
                 </div>
             </div>
             <footer>
-                <button class="ButtonChange" type="button">
+                <a class="ButtonChange" href="changePassword">
                     Change password
-                </button>
+                </a>
             </footer>
     </body>
 </html>

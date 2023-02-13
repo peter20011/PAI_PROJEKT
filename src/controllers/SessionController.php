@@ -28,18 +28,17 @@ class SessionController extends AppController
     }
 
     //from yt may be usueful
-    protected function getUserAndPermission(){
+    protected function getUserSession(){
         $userRepository = new UserRepository();
         try {
             $user = $userRepository->getUser($_SESSION['useremail']);
-            $permission = $userRepository->getPermission($user);
         }
         catch(NoMatchingRecordException $e) {
             session_destroy();
             $this->changeHeader('login');
             die();
         }
-        return ["user" => $user, "permission" => $permission];
+        return ["user" => $user];
     }
 
     protected function destroySession(){

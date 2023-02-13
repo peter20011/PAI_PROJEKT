@@ -27,6 +27,14 @@ a:visited {
  color:inherit
 }
 
+button,a {
+    border:none;
+    color:var(--app-button-font-color);
+    font-family:Quicksand,sans-serif;
+    font-family:var(--app-font-family);
+    outline:none
+}
+
 
 #TopBar{
 flex-shrink: 0;
@@ -163,13 +171,7 @@ letter-spacing: .1rem;
 width: 31rem;
 }
 
-button {
-    border:none;
-    color:var(--app-button-font-color);
-    font-family:Quicksand,sans-serif;
-    font-family:var(--app-font-family);
-    outline:none
-}
+
 
 .ButtonChange{
     align-items: center;
@@ -186,6 +188,7 @@ button {
     padding: 0 2rem;
     text-transform: uppercase;
     margin: 0 auto;
+    width: 25%;
 }
 
 

@@ -15,7 +15,7 @@ class User
     }
 
 
-    public function getUsername(): string
+    public function getUsername()
     {
         return $this->username;
     }
