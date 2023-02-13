@@ -7,23 +7,11 @@ class User
     private $password;
 
 
-    public function __construct( string $username, string $email, string $password, int $permissions)
+    public function __construct( string $username, string $email, string $password)
     {
         $this->username = $username;
         $this->email = $email;
         $this->password = $password;
-        $this->permissions=$permissions;
-    }
-
-    public function getEmial(): string
-    {
-        return $this->emial;
-    }
-
-
-    public function setEmial(string $email): void
-    {
-        $this->email = $email;
     }
 
 
@@ -39,13 +27,12 @@ class User
     }
 
 
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-
-    public function setEmail($email): void
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -61,22 +48,6 @@ class User
     {
         $this->password = $password;
     }
-
-
-    public function getPermissions(): int
-    {
-        return $this->permisions;
-    }
-
-
-    public function setPermissions(int $permissions): void
-    {
-        $this->permisions = $permissions;
-    }
-
-
-
-
 
 
 }

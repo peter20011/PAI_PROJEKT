@@ -1,7 +1,6 @@
 <?php
 
-
-class Band extends User
+class Band
 {
     private $username;
     private $email;

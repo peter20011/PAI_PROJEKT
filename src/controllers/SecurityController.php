@@ -1,30 +1,52 @@
 <?php
 
-require_once 'AppController.php';
+require_once 'SessionController.php';
 require_once __DIR__.'/../models/User.php';
-class SecurityController extends AppController
+require_once __DIR__.'/../repository/UserRepository.php';
+require_once __DIR__.'/../exceptions/NoMatchingRecordException.php';
+require_once __DIR__.'/../exceptions/CannotAddRecordException.php';
+
+class SecurityController extends SessionController
 {
     public function login()
     {
-        $user= new User("janko","janko@gmail.com","makao123",0);
+        $userRepository = new UserRepository();
 
-        if (!$this->isPost()) {
+        if (!$this->isPost()){
+            return $this->render('login');
+        }
+        if (!$this->areAllSet(['email','password'])) {
             return $this->render('login');
         }
 
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $pass = $_POST['password'];
 
-        if ($user->getEmial() !== $email) {
-            return $this->render('login', ['messages' => ['User with this email not exist!']]);
+        try {
+            $user = $userRepository->getUser($email);
+        }
+        catch (NoMatchingRecordException $e) {
+            return $this->render('login', ['messages' => ["User not exists"]]);
         }
 
-        if ($user->getPassword() !== $password) {
-            return $this->render('login', ['messages' => ['Wrong password!']]);
+        if (!$user) {
+            return $this->render('login', ['messages' => ["User not exists"]]);
         }
-        return $this->render('homePage');
+
+        if ($user->getEmail() !== $email) {
+            return $this->render('login', ['messages' => ["User with this email not exists"]]);
+        }
+
+        if ($user->getPassword()!==$pass) {
+            return $this->render('login', ['messages' => ["Wrong password"]]);
+        }
+
+        $this->createSession($user);
+        $this->changeHeader('homePage');
 
     }
+
+
 
     public function registrationBand(){
         $this->render("registrationBand");

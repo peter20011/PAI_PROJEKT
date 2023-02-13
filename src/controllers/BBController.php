@@ -1,7 +1,7 @@
 <?php
 
-require_once 'AppController.php';
-class BBController extends AppController
+require_once 'SessionController.php';
+class BBController extends SessionController
 {
         public function homePage()
     {

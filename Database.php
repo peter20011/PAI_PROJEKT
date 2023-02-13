@@ -14,10 +14,14 @@ class Database
         $this->username = 'dbuser';
         $this->password = 'dbpwd';
         $this->host = 'db';
-        $this->database = 'dbname';
+        $this->database = 'postgres';
     }
 
 
+    public static function getInstance(){
+        if(self::$instance==null) self::$instance=new Database();
+        return self::$instance;
+    }
 
     public function connect()
     {

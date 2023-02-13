@@ -1,8 +1,8 @@
 <?php
 
-require_once 'AppController.php';
+require_once 'SessionController.php';
 
-class DefaultController extends AppController {
+class DefaultController extends SessionController {
 
     public function index(){
         $this->render('login');

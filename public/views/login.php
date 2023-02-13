@@ -31,7 +31,7 @@
                                             ?>
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="text" name="email" placeholder="Emial" >
+                                            <input class="Input_input" type="text" name="email" placeholder="Email" >
                                         </div>
                                         <div class="Input-container">
                                             <input class="Input_input" type="password" name="password" placeholder="Password">
