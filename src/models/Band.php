@@ -12,7 +12,8 @@ class Band
     private $numberLikes;
 
 
-    public function __construct(string $username, string $email,string $password,string $scheduleLink,string $ytLink,string $fanpageLink, string $bandDescription, int $numberLikes)
+    public function __construct(string $username,string $email,string $password, string $scheduleLink,
+                                string $ytLink,string $fanpageLink,string $bandDescription)
     {
         $this->username = $username;
         $this->email = $email;
@@ -20,26 +21,14 @@ class Band
         $this->scheduleLink = $scheduleLink;
         $this->ytLink = $ytLink;
         $this->fanpageLink = $fanpageLink;
-        $this->bandDescription=$bandDescription;
-
-        $this->numberLikes->$numberLikes;
+        $this->bandDescription = $bandDescription;
+        $this->numberLikes=0;
     }
+
 
     public function getUsername(): string
     {
         return $this->username;
-    }
-
-
-    public function getBandDescription(): string
-    {
-        return $this->bandDescription;
-    }
-
-
-    public function setBandDescription(string $bandDescription): void
-    {
-        $this->bandDescription = $bandDescription;
     }
 
 
@@ -52,17 +41,6 @@ class Band
     public function getEmail(): string
     {
         return $this->email;
-    }
-
-    public function getNumberLikes()
-    {
-        return $this->numberLikes;
-    }
-
-
-    public function setNumberLikes($numberLikes): void
-    {
-        $this->numberLikes = $numberLikes;
     }
 
 
@@ -107,7 +85,6 @@ class Band
         $this->ytLink = $ytLink;
     }
 
-
     public function getFanpageLink(): string
     {
         return $this->fanpageLink;
@@ -118,6 +95,32 @@ class Band
     {
         $this->fanpageLink = $fanpageLink;
     }
+
+
+    public function getBandDescription(): string
+    {
+        return $this->bandDescription;
+    }
+
+
+    public function setBandDescription(string $bandDescription): void
+    {
+        $this->bandDescription = $bandDescription;
+    }
+
+
+    public function getNumberLikes(): int
+    {
+        return $this->numberLikes;
+    }
+
+
+    public function setNumberLikes(int $numberLikes): void
+    {
+        $this->numberLikes = $numberLikes;
+    }
+
+
 
 
 

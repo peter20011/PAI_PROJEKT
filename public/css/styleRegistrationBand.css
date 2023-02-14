@@ -194,6 +194,21 @@ margin-bottom: 4vh;
 padding-left: 36%;
 }
 
+.comment-box{
+    background-color: var(--app-bg-color-darker);
+    border: none;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: var(--app-font-color);
+    font-family: var(--app-font-family);
+    font-size: 2em;
+    font-weight: 600;
+    outline: none;
+    padding: 1.1em;
+    box-shadow: inset 0 0 6px hsla(0,0%,100%,.2);
+    text-align: center;
+}
+
 
 @media only screen and (max-device-width: 440px ){
 

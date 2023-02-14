@@ -18,7 +18,6 @@ Routing::get('bandProfile','BBController');
 Routing::post('login',"SecurityController");
 Routing::post('registrationBand',"SecurityController");
 Routing::post('registrationUser',"SecurityController");
-Routing::post('bandDescribe',"SecurityController");
 Routing::post('changePassword',"SecurityController");
 
 Routing::run($path);

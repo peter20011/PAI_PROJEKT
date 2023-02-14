@@ -8,6 +8,8 @@ require_once __DIR__.'/../repository/UserRepository.php';
 require_once __DIR__.'/../exceptions/NoMatchingRecordException.php';
 class SessionController extends AppController
 {
+
+    //for user
     protected function createSession(User $user){
         session_start();
         if(isset($_SESSION['auth'])){
@@ -27,7 +29,7 @@ class SessionController extends AppController
         }
     }
 
-    //from yt may be usueful
+
     protected function getUserSession(){
         $userRepository = new UserRepository();
         try {
@@ -41,6 +43,18 @@ class SessionController extends AppController
         return ["user" => $user];
     }
 
+
+    //for band
+    protected function createSessionBand(Band $band){
+        session_start();
+        if(isset($_SESSION['auth'])){
+            session_destroy();
+            session_start();
+        }
+        $_SESSION['auth']=true;
+        $_SESSION['useremail']=$band->getEmail();
+        $_SESSION['username']=$band->getUsername();
+    }
     protected function destroySession(){
         session_destroy();
     }
