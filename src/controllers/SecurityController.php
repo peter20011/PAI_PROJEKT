@@ -24,7 +24,6 @@ class SecurityController extends SessionController
         $email = $_POST['email'];
         $pass= $_POST['password'];
 
-        //check user if exists
         $exists=$user->ifContains($email);
         if($exists){
             try {
@@ -47,7 +46,6 @@ class SecurityController extends SessionController
             if (!password_verify($pass,$user->getPassword())) {
                 return $this->render('login', ['messages' => ["Wrong password"]]);
             }
-
 
             $this->createSession($user);
 
@@ -74,12 +72,10 @@ class SecurityController extends SessionController
                 return $this->render('login', ['messages' => ["Wrong password"]]);
             }
 
-
             $this->createSessionBand($band);
         }
         $this->changeHeader('homePage');
     }
-
 
     public function registrationBand(){
 
@@ -146,52 +142,94 @@ class SecurityController extends SessionController
     public function changePassword(){
 
         $this->requiredSession();
-
-        $result=$this->getUserSession();
-        $user=$result['user'];
-
-        if(!$this->isPost()){
-           return $this->render('changePassword');
-        }
-
-        if (!$this->areAllSet(['old_pass','new_pass','new_pass2'])) {
-            return $this->render('changePassword',['messages' => ['Lack of data']]);
-        }
-
-        $oldPassword=$_POST['old_pass'];
-        $newPassword=$_POST['new_pass'];
-        $newPassword2=$_POST['new_pass2'];
-
-
-        if(!password_verify($oldPassword,$user->getPassword())){
-            return $this->render('changePassword', ['messages' => ['Wrong password 1']]);
-        };
-
-        if (!$this->validatePassword($newPassword)) {
-            return $this->render('changePassword', ['messages' => [ 'New password is too weak']]);
-        }
-
-        if($newPassword!==$newPassword2){
-            return $this->render('changePassword', ['messages' => ['Wrong password 2']]);
-        }
-
-        if($oldPassword===$newPassword){
-            return $this->render('changePassword', ['messages' => ['Wrong password 3']]);
-        }
-
-        $hash=password_hash($newPassword,PASSWORD_BCRYPT);
         $userRepostory= new UserRepository();
-        $user->setPassword($hash);
-        try{
-            $userRepostory->updatePassword($user);
-        }catch (NoMatchingRecordException $e){
-            return $this->render('changePassword', [ 'messages' => ['Cannot change password']]);
+        $constains=$userRepostory->ifContains($_SESSION['useremail']);
+        if($constains){
+            $result=$this->getUserSession();
+            $user=$result['user'];
+
+            if(!$this->isPost()){
+                return $this->render('changePassword');
+            }
+
+            if (!$this->areAllSet(['old_pass','new_pass','new_pass2'])) {
+                return $this->render('changePassword',['messages' => ['Lack of data']]);
+            }
+
+            $oldPassword=$_POST['old_pass'];
+            $newPassword=$_POST['new_pass'];
+            $newPassword2=$_POST['new_pass2'];
+
+
+            if(!password_verify($oldPassword,$user->getPassword())){
+                return $this->render('changePassword', ['messages' => ['Wrong password  ']]);
+            };
+
+            if (!$this->validatePassword($newPassword)) {
+                return $this->render('changePassword', ['messages' => [ 'New password is too weak']]);
+            }
+
+            if($newPassword!==$newPassword2){
+                return $this->render('changePassword', ['messages' => ['Wrong password ']]);
+            }
+
+            if($oldPassword===$newPassword){
+                return $this->render('changePassword', ['messages' => ['Wrong password ']]);
+            }
+
+            $hash=password_hash($newPassword,PASSWORD_BCRYPT);
+            $userRepostory= new UserRepository();
+            $user->setPassword($hash);
+            try{
+                $userRepostory->updatePassword($user);
+            }catch (NoMatchingRecordException $e){
+                return $this->render('changePassword', [ 'messages' => ['Cannot change password']]);
+            }
+        }else{
+            $result=$this->getBandSession();
+            $band=$result['band'];
+
+            if(!$this->isPost()){
+                return $this->render('changePassword');
+            }
+
+            if (!$this->areAllSet(['old_pass','new_pass','new_pass2'])) {
+                return $this->render('changePassword',['messages' => ['Lack of data']]);
+            }
+
+            $oldPassword=$_POST['old_pass'];
+            $newPassword=$_POST['new_pass'];
+            $newPassword2=$_POST['new_pass2'];
+
+
+            if(!password_verify($oldPassword,$band->getPassword())){
+                return $this->render('changePassword', ['messages' => ['Wrong password 1']]);
+            };
+
+            if (!$this->validatePassword($newPassword)) {
+                return $this->render('changePassword', ['messages' => [ 'New password is too weak']]);
+            }
+
+            if($newPassword!==$newPassword2){
+                return $this->render('changePassword', ['messages' => ['Wrong password 2']]);
+            }
+
+            if($oldPassword===$newPassword){
+                return $this->render('changePassword', ['messages' => ['Wrong password 3']]);
+            }
+
+            $hash=password_hash($newPassword,PASSWORD_BCRYPT);
+            $bandRepository= new BandRepository();
+            $band->setPassword($hash);
+            try{
+                $bandRepository->updatePassword($band);
+            }catch (NoMatchingRecordException $e){
+                return $this->render('changePassword', [ 'messages' => ['Cannot change password']]);
         }
 
-
+    }
         return $this->render('changePassword', ['messages' => ['Password has been changed!']]);
-
-    } // na zaespół rowniez
+    }
 
     public function registrationUser(){
         if (!$this->isPost()){

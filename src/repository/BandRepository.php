@@ -26,10 +26,10 @@ class BandRepository extends Repository
             $band['username'],
             $band['email'],
             $band['password'],
-            $band['scheduleLink'],
-            $band['ytLink'],
-            $band['fanpageLink'],
-            $band['bandDescription']
+            $band['schedule_link'],
+            $band['yt_link'],
+            $band['fb_link'],
+            $band['band_description']
         );
     }
 
@@ -82,12 +82,11 @@ class BandRepository extends Repository
 
     }
 
-    //TODO sprawdzić działanie
     public function updatePassword(Band $band){
         $pdo = $this->database->connect();
 
         $pdo->beginTransaction();
-        $stm = $pdo->prepare('UPDATE users SET password = ? WHERE email = ?');
+        $stm = $pdo->prepare('UPDATE band SET password = ? WHERE email = ?');
         $password = $band->getPassword();
         $stm->bindParam(1, $password, PDO::PARAM_STR);
         $email = $band->getEmail();
