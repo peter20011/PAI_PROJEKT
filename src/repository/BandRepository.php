@@ -47,18 +47,10 @@ class BandRepository extends Repository
             throw new CannotAddRecordException('Band with this name already exists');
         }
 
-        $stm = $pdo->prepare('SELECT * FROM band WHERE email = :email');
-        $email = $band->getEmail();
-        $stm->bindParam(':email', $email, PDO::PARAM_STR);
-        $stm->execute();
-        if ($stm->rowCount() > 0) {
-            $pdo->rollBack();
-            throw new CannotAddRecordException('Band with this email already exists');
-        }
-
         $stm = $pdo->prepare('INSERT INTO band (username,email,password,schedule_link,yt_link,fb_link,band_description,likes) VALUES (?,?,?,?,?,?,?,?)');
 
         $stm->bindParam(1, $bandname, PDO::PARAM_STR);
+        $email=$band->getEmail();
         $stm->bindParam(2, $email, PDO::PARAM_STR);
         $password = $band->getPassword();
         $stm->bindParam(3, $password, PDO::PARAM_STR);
@@ -97,6 +89,18 @@ class BandRepository extends Repository
             throw new NoMatchingRecordException();
         }
         $pdo->commit();
+    }
+
+    public function ifContains(string  $email): bool{
+        $stm = $this->database->connect()->prepare('SELECT * FROM band where email =:email');
+        $stm->bindParam(':email', $email, PDO::PARAM_STR);
+        $stm->execute();
+
+        if ($stm->rowCount() == 0) {
+            return false;
+        }
+
+        return true;
     }
 
 

@@ -41,21 +41,13 @@ class UserRepository extends Repository
         $stm->execute();
         if ($stm->rowCount() > 0) {
             $pdo->rollBack();
-            throw new CannotAddRecordException('Band with this name already exists');
-        }
-
-        $stm = $pdo->prepare('SELECT * FROM users WHERE email = :email');
-        $email = $user->getEmail();
-        $stm->bindParam(':email', $email, PDO::PARAM_STR);
-        $stm->execute();
-        if ($stm->rowCount() > 0) {
-            $pdo->rollBack();
-            throw new CannotAddRecordException('Band with this email already exists');
+            throw new CannotAddRecordException('User with this name already exists');
         }
 
         $stm = $pdo->prepare('INSERT INTO users (username,email,password) VALUES (?,?,?)');
 
         $stm->bindParam(1, $username, PDO::PARAM_STR);
+        $email=$user->getEmail();
         $stm->bindParam(2, $email, PDO::PARAM_STR);
         $password = $user->getPassword();
         $stm->bindParam(3, $password, PDO::PARAM_STR);
@@ -98,10 +90,6 @@ class UserRepository extends Repository
         return true;
     }
 
-    public function ifDuplicate(string $email){
-        $stm = $this->database->connect()->prepare('SELECT * FROM "users" where email =:email');
-        $stm->bindParam(':email', $email, PDO::PARAM_STR);
-        $stm->execute();
-    }
+
 
 }

@@ -25,7 +25,7 @@ class SessionController extends AppController
 
     protected function requiredSession(){
         session_start();
-        if(!isset($_SESSION['auth'])){
+        if(!isset( $_SESSION['auth'])){
             $this->changeHeader('login');
             die();
         }
@@ -35,7 +35,7 @@ class SessionController extends AppController
     protected function getUserSession(){
         $userRepository = new UserRepository();
         try {
-            $user = $userRepository->getUser($_SESSION['useremail']);
+            $user = $userRepository->getUser( $_SESSION['useremail']);
         }
         catch(NoMatchingRecordException $e) {
             session_destroy();
@@ -47,7 +47,7 @@ class SessionController extends AppController
 
     protected function createSessionBand(Band $band){
         session_start();
-        if(isset($_SESSION['auth'])){
+        if(isset( $_SESSION['auth'])){
             session_destroy();
             session_start();
         }

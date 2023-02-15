@@ -87,7 +87,6 @@ min-width: 0;
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
-width: -webkit-fit-content;
 width: -moz-fit-content;
 width: fit-content;
 
@@ -103,6 +102,8 @@ height: 8rem;
 padding: 0 5rem;
 width: 100%;
 margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .Page-Title-Bar>span{
@@ -111,7 +112,7 @@ margin-bottom: 10px;
     text-align: center;
 }
 
-.container-page{
+#container-page{
 align-items: center;
 border-radius: 1.5rem;
 box-sizing: border-box;
@@ -121,15 +122,15 @@ height: 100%;
 justify-content: center;
 margin: 5rem 4.5rem;
 width: calc(100% - 14rem);
-
+display: flex;
 }
 
 .home-blocks{
-display: flex;
-flex-direction: column;
-justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
-
 
 .Home-row-blocks{
 display: flex;
@@ -172,6 +173,28 @@ width: 31rem;
 }
 
 
+.search-bar>input{
+    background-color: var(--app-bg-color-darker);
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: var(--app-font-color);
+    font-family: var(--app-font-family);
+    font-size: 1em;
+    font-weight: 200;
+    outline: none;
+    padding: 1.1em;
+    box-shadow: inset 0 0 6px hsla(0,0%,100%,.2);
+    width: 100%;
+    text-align:center ;
+}
+
+.search-bar{
+    margin: 0 auto;
+    display: block;
+    justify-items: center;
+    width: 50%;
+}
 
 .ButtonChange{
     align-items: center;
@@ -205,11 +228,6 @@ footer{
     font-size: 80px;
 }
 
-.Page-Title-Bar{
-align-items: center;
-justify-content: center;
-}
-
 
 
 .container-page{
@@ -218,11 +236,7 @@ justify-content: flex-start;
 margin: 0 2rem;
 }
 
-.home-blocks{
-    align-items: center;
-    display: flex;
 
-}
 
 .BAND-choose{
     font-size: 3rem;

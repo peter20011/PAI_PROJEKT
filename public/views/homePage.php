@@ -20,6 +20,9 @@
                 <span>Homepage</span>
             </div>
             <div id="container-page">
+                <div class="search-bar">
+                    <input placeholder="search band">
+                </div>
                 <div class="home-blocks">
                     <div class="Home-row-blocks">
                         <div class="Home-null"></div>

@@ -124,8 +124,17 @@ class SecurityController extends SessionController
             return $this->render('registrationBand', ['messages' => ['Wrong url']]);
         }
 
-        $hash = password_hash($password, PASSWORD_BCRYPT);
         $bandRepository = new BandRepository();
+        $userRepository= new UserRepository();
+        if($userRepository->ifContains($email) ){
+            return $this->render('registrationBand' ,['messages' => ['User or Band already exists with this address email']]);
+        }
+
+        if($bandRepository->ifContains($email)){
+            return $this->render('registrationBand' ,['messages' => ['User or Band already exists with this address email']]);
+        }
+
+        $hash = password_hash($password, PASSWORD_BCRYPT);
         $band = new Band($name, $email, $hash,$schedule,$yt,$fb,$description);
         try {
             $bandRepository->addBand($band);
@@ -143,7 +152,7 @@ class SecurityController extends SessionController
 
         $this->requiredSession();
         $userRepostory= new UserRepository();
-        $constains=$userRepostory->ifContains($_SESSION['useremail']);
+        $constains=$userRepostory->ifContains( $_SESSION['useremail']);
         if($constains){
             $result=$this->getUserSession();
             $user=$result['user'];
@@ -249,24 +258,32 @@ class SecurityController extends SessionController
         }
 
         if (preg_match_all('/(?:[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/i', $email) == false) {
-            return $this->render('registrationUser', ['messages' => ['Wrong email address'], 'defaults' => ['username' => $name]]);
+            return $this->render('registrationUser', ['messages' => ['Wrong email address']]);
         }
 
         if (strlen($email) > 100) {
-            return $this->render('registrationUser', ['messages' => ['Address email is too long'], 'defaults' => ['username' => $name]]);
+            return $this->render('registrationUser', ['messages' => ['Address email is too long']]);
         }
 
         if (!$this->validatePassword($password)) {
-            return $this->render('registrationUser', ['messages' => ['Password is too weak'], 'defaults' => ['username' => $name, 'email' => $email]]);
+            return $this->render('registrationUser', ['messages' => ['Password is too weak']]);
         }
 
         if($password!==$password2){
-            return $this->render('registrationUser', ['messages' => ['Passwords are not the same'], 'defaults' => ['username' => $name, 'email' => $email]]);
+            return $this->render('registrationUser', ['messages' => ['Passwords are not the same']]);
         }
 
-        $hash = password_hash($password, PASSWORD_BCRYPT);
-
         $userRepository = new UserRepository();
+        $bandRepository= new BandRepository();
+        if($userRepository->ifContains($email)){
+            return $this->render('registrationUser' ,['messages' => ['User or Band already exists with this address email']]);
+        }
+        if($bandRepository->ifContains($email)){
+            return $this->render('registrationUser' ,['messages' => ['User or Band already exists with this address email']]);
+        }
+
+
+        $hash = password_hash($password, PASSWORD_BCRYPT);
         $user = new User($name, $email, $hash);
         try {
             $userRepository->addUser($user);
@@ -286,5 +303,6 @@ class SecurityController extends SessionController
 
         return true;
     }
+
 
 }

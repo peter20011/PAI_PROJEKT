@@ -14,7 +14,6 @@ Routing::get('homePage', 'BBController');
 Routing::get('bandProfile','BBController');
 
 
-
 Routing::post('login',"SecurityController");
 Routing::post('registrationBand',"SecurityController");
 Routing::post('registrationUser',"SecurityController");
