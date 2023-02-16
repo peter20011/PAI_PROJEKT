@@ -61,7 +61,10 @@
             </div>
             <footer>
                 <button class="ButtonDelate" type="button">
-                    Delate
+                    Back
+                </button>
+                <button class="ButtonDelate" type="button">
+                    Delate account
                 </button>
             </footer>
     </body>

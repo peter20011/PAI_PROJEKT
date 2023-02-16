@@ -190,6 +190,10 @@ button {
     padding: 0 2rem;
     text-transform: uppercase;
     margin: 0 auto;
+    margin-bottom: 15px;
+}
+.footer{
+    display: flex;
 }
 
 @media only screen and (max-device-width: 440px ){

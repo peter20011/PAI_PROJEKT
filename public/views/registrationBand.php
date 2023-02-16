@@ -6,6 +6,8 @@
         <meta name="keywords" content="band">
         <title>BOOKBAND - REGISTRATION BAND PAGE</title>
         <link rel="stylesheet"  type="text/css" href="public/css/styleRegistrationBand.css">
+        <script type="text/javascript" src="public/js/validationBand.js" defer></script>
+        <script type="text/javascript" src="public/js/togglePassword.js" defer></script>
     </head>
     <body>
             <div id="Page_topbar">
@@ -37,10 +39,10 @@
                                             <input class="Input_input" type="text" name="email" placeholder="Address emial" >
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="password" name="password" placeholder="Password" >
+                                            <input class="Input_input Input_input_password" type="password" name="password" placeholder="Password" >
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="password" name="password2" placeholder="Repeat your password">
+                                            <input class="Input_input Input_input_password" type="password" name="password2" placeholder="Repeat your password">
                                         </div>
                                         <div class="Input-container">
                                             <input class="Input_input" type="url" name="schedule" placeholder="Link to your schedule">
@@ -55,7 +57,7 @@
                                             <textarea class="comment-box" cols="22" rows="12" name="description" placeholder="Type your comment"></textarea>
                                         </div>
                                         <label class="SignUp-checkBox">
-                                            <input type="checkbox">
+                                            <input type="checkbox" onchange="toogleInput(this)">
                                             <em>Show password?</em>
                                         </label>
                                         <div class="SignUp-formOptions">

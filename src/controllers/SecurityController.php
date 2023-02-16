@@ -106,6 +106,9 @@ class SecurityController extends SessionController
         if (strlen($email) > 100) {
             return $this->render('registrationBand', ['messages' => ['Address email is too long']]);
         }
+        if (strlen($description) ==0) {
+            return $this->render('registrationBand', ['messages' => ['Lack of description']]);
+        }
 
         if (!$this->validatePassword($password)) {
             return $this->render('registrationBand', ['messages' => ['Password is too weak']]);
@@ -212,7 +215,7 @@ class SecurityController extends SessionController
 
 
             if(!password_verify($oldPassword,$band->getPassword())){
-                return $this->render('changePassword', ['messages' => ['Wrong password 1']]);
+                return $this->render('changePassword', ['messages' => ['Wrong password ']]);
             };
 
             if (!$this->validatePassword($newPassword)) {
@@ -220,11 +223,11 @@ class SecurityController extends SessionController
             }
 
             if($newPassword!==$newPassword2){
-                return $this->render('changePassword', ['messages' => ['Wrong password 2']]);
+                return $this->render('changePassword', ['messages' => ['Wrong password ']]);
             }
 
             if($oldPassword===$newPassword){
-                return $this->render('changePassword', ['messages' => ['Wrong password 3']]);
+                return $this->render('changePassword', ['messages' => ['Wrong password ']]);
             }
 
             $hash=password_hash($newPassword,PASSWORD_BCRYPT);

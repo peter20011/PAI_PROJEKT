@@ -6,6 +6,8 @@
         <meta name="keywords" content="band">
         <title>BOOKBAND - REGISTRATION USER PAGE</title>
         <link rel="stylesheet"  type="text/css" href="public/css/styleRegistration.css">
+        <script type="text/javascript" src="public/js/validationUser.js" defer></script>
+        <script type="text/javascript" src="public/js/togglePassword.js" defer></script>
     </head>
     <body>
             <div id="Page_topbar">
@@ -37,13 +39,13 @@
                                             <input class="Input_input" type="text" name="email" placeholder="Email">
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="password" name="password" placeholder="Password" >
+                                            <input class="Input_input Input_input_password" type="password"  name="password" placeholder="Password" >
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="password" name="password2" placeholder=" Repeat password">
+                                            <input class="Input_input Input_input_password" type="password" name="password2" placeholder=" Repeat password">
                                         </div>
                                         <label class="SignUp-checkBox">
-                                            <input type="checkbox">
+                                            <input type="checkbox" onchange="toogleInput(this)">
                                             <em>Show password?</em>
                                         </label>
                                         <div class="SignUp-formOptions">

@@ -6,6 +6,7 @@
         <meta name="keywords" content="band">
         <title>BOOKBAND - LOGIN PAGE</title>
         <link rel="stylesheet" type="text/css" href="public/css/styleLogin.css">
+        <script type="text/javascript" src="public/js/togglePassword.js" defer></script>
     </head>
     <body>
             <div id="Page_topbar">
@@ -34,10 +35,10 @@
                                             <input class="Input_input" type="text" name="email" placeholder="Email" >
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="password" name="password" placeholder="Password">
+                                            <input class="Input_input Input_input_password" type="password" name="password" placeholder="Password">
                                         </div>
                                         <label class="Login-checkBox">
-                                            <input type="checkbox">
+                                            <input type="checkbox" onchange="toogleInput(this)">
                                             <em>Show password?</em>
                                         </label>
                                         <div class="Login-formOptions">
