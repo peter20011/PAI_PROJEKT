@@ -1,0 +1,197 @@
+Index: src/controllers/BBController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/controllers/BBController.php b/src/controllers/BBController.php
+--- a/src/controllers/BBController.php	
++++ b/src/controllers/BBController.php	
+@@ -3,9 +3,11 @@
+ require_once 'SessionController.php';
+ class BBController extends SessionController
+ {
+-    //TODO
+-        public function homePage()
++
++
++    public function homePage()
+     {
++        $this->requiredSession();
+         $this->render('homePage');
+     }
+     //TODO
+@@ -13,4 +15,11 @@
+         $this->render('bandProfile');
+     }
+ 
++
++//    public function bands(){
++//        $bands=$this->bandRepository->getAllBands();
++//        $this->render('homePage', ['bands'=>$bands]);
++//    }
++
++
+ }
+\ No newline at end of file
+Index: public/views/homePage.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/views/homePage.php b/public/views/homePage.php
+--- a/public/views/homePage.php	
++++ b/public/views/homePage.php	
+@@ -6,11 +6,12 @@
+         <meta name="keywords" content="band">
+         <title>BOOKBAND - HONMEPAGE</title>
+         <link rel="stylesheet" type="text/css" href="public/css/stylehomePage.css">
++        <script type="text/javascript" src="public/js/logout.js" defer></script>
+     </head>
+     <body>
+         <div id="TopBar">
+             <div id="User-profile">
+-                <div class="User-profile2">
++                <div class="User-profile2" onclick="logout()" >
+                     <img class="User-profile-avatar" src="public/img/defaultAvatar.svg">
+                     <span class="Logout">Logout</span>
+                 </div>
+@@ -23,10 +24,10 @@
+                 <div class="search-bar">
+                     <input placeholder="search band">
+                 </div>
+-                <div class="home-blocks">
++                <div class="home-blocks" class="bands">
+                     <div class="Home-row-blocks">
+                         <div class="Home-null"></div>
+-                        <a class="BAND">
++                        <a class="BAND" href="/bandProfile?id=">
+                             <!-- Musi być odnośnik  href-->
+                             <div class="BAND-choose">
+                                 <img class="Band-icon" src="public/img/band.svg">
+Index: src/controllers/SessionController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/controllers/SessionController.php b/src/controllers/SessionController.php
+--- a/src/controllers/SessionController.php	
++++ b/src/controllers/SessionController.php	
+@@ -14,10 +14,10 @@
+     //for user
+     protected function createSession(User $user){
+         session_start();
+-        if(isset($_SESSION['auth'])){
+-            session_destroy();
+-            session_start();
+-        }
++//        if(isset($_SESSION['auth'])){
++//            session_destroy();
++//            session_start();
++//        }
+         $_SESSION['auth']=true;
+         $_SESSION['useremail']=$user->getEmail();
+         $_SESSION['username']=$user->getUsername();
+@@ -69,7 +69,5 @@
+         }
+         return ["band" => $band];
+     }
+-    protected function destroySession(){
+-        session_destroy();
+-    }
++
+ }
+\ No newline at end of file
+Index: src/controllers/SecurityController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/controllers/SecurityController.php b/src/controllers/SecurityController.php
+--- a/src/controllers/SecurityController.php	
++++ b/src/controllers/SecurityController.php	
+@@ -299,6 +299,13 @@
+ 
+     }
+ 
++    public function logout(){
++
++        session_unset();
++        session_destroy();
++        $this->changeHeader("/login");
++    }
++
+     public function validatePassword(string $password):bool {
+         if (strlen($password) < 8) {
+             return false;
+Index: src/repository/BandRepository.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/repository/BandRepository.php b/src/repository/BandRepository.php
+--- a/src/repository/BandRepository.php	
++++ b/src/repository/BandRepository.php	
+@@ -104,5 +104,28 @@
+     }
+ 
+ 
++    public function allBandsGet():array{
++        $result=[];
++
++        $stm = $this->database->connect()->prepare('SELECT * FROM band');
++        $stm->execute();
++        $bands=$stm->fetchAll(PDO::FETCH_ASSOC);
++
++        foreach ($bands as $band){
++            $result[]= new Band(
++                $band['username'],
++                $band['email'],
++                $band['password'],
++                $band['schedule_link'],
++                $band['yt_link'],
++                $band['fb_link'],
++                $band['band_description']
++            );
++        }
++
++        return $result;
++    }
++
++
+ 
+ }
+\ No newline at end of file
+Index: public/js/logout.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/js/logout.js b/public/js/logout.js
+new file mode 100644
+--- /dev/null	
++++ b/public/js/logout.js	
+@@ -0,0 +1,6 @@
++ async function logout(){
++    try{
++        const resp = await fetch("/logout",{method: 'POST'});
++        if(!resp.ok) throw new Error('Logout failed');
++    }catch (err){}
++}
+\ No newline at end of file
+Index: index.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.php b/index.php
+--- a/index.php	
++++ b/index.php	
+@@ -12,7 +12,7 @@
+ 
+ Routing::get('homePage', 'BBController');
+ Routing::get('bandProfile','BBController');
+-
++Routing::post('logout',"SecurityController");
+ 
+ Routing::post('login',"SecurityController");
+ Routing::post('registrationBand',"SecurityController");

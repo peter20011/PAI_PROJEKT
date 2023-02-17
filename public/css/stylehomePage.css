@@ -211,7 +211,6 @@ width: 31rem;
     padding: 0 2rem;
     text-transform: uppercase;
     margin: 0 auto;
-    width: 25%;
 }
 
 
@@ -225,7 +224,7 @@ footer{
 }
 
 *{
-    font-size: 64px;
+    font-size: 100px;
 }
 
 
@@ -240,20 +239,17 @@ margin: 0 2rem;
 
 .BAND-choose{
     font-size: 3rem;
-    height: 35rem;
+    height: 40rem;
     justify-content: flex-start;
-    width: 35rem;
+    width: 40rem;
     justify-content: center;
 }
 
-.Band-icon{
-    width: 200px;
-    height: 200px;
-    margin-bottom: 15px;
-}
 
-.ButtonChange{
-    width: 40%;
+.Band-icon{
+    width: 250px;
+    height: 250px;
+    margin-bottom: 22px;
 }
 
 .search-bar>input{

@@ -2,7 +2,6 @@
 
 require_once 'Repository.php';
 require_once __DIR__.'/../models/User.php';
-require_once __DIR__.'/../models/Permission.php';
 require_once __DIR__.'/../exceptions/NoMatchingRecordException.php';
 require_once __DIR__.'/../exceptions/CannotAddRecordException.php';
 class UserRepository extends Repository
@@ -26,7 +25,8 @@ class UserRepository extends Repository
         return new User(
             $user['username'],
             $user['email'],
-            $user['password']
+            $user['password'],
+            $user['role']
         );
     }
 
@@ -44,13 +44,15 @@ class UserRepository extends Repository
             throw new CannotAddRecordException('User with this name already exists');
         }
 
-        $stm = $pdo->prepare('INSERT INTO users (username,email,password) VALUES (?,?,?)');
+        $stm = $pdo->prepare('INSERT INTO users (username,email,password,role) VALUES (?,?,?,?)');
 
         $stm->bindParam(1, $username, PDO::PARAM_STR);
         $email=$user->getEmail();
         $stm->bindParam(2, $email, PDO::PARAM_STR);
         $password = $user->getPassword();
         $stm->bindParam(3, $password, PDO::PARAM_STR);
+        $role=$user->getRole();
+        $stm->bindParam(4, $role, PDO::PARAM_INT);
         $stm->execute();
         if ($stm->rowCount() == 0) {
             $pdo->rollBack();

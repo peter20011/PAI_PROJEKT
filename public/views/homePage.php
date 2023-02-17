@@ -6,11 +6,12 @@
         <meta name="keywords" content="band">
         <title>BOOKBAND - HONMEPAGE</title>
         <link rel="stylesheet" type="text/css" href="public/css/stylehomePage.css">
+        <script type="text/javascript" src="public/js/logout.js" defer></script>
     </head>
     <body>
         <div id="TopBar">
             <div id="User-profile">
-                <div class="User-profile2">
+                <div class="User-profile2" onclick="logout(this)">
                     <img class="User-profile-avatar" src="public/img/defaultAvatar.svg">
                     <span class="Logout">Logout</span>
                 </div>
@@ -23,45 +24,20 @@
                 <div class="search-bar">
                     <input placeholder="search band">
                 </div>
-                <div class="home-blocks">
-                    <div class="Home-row-blocks">
-                        <div class="Home-null"></div>
-                        <a class="BAND">
-                            <!-- Musi być odnośnik  href-->
-                            <div class="BAND-choose">
-                                <img class="Band-icon" src="public/img/band.svg">
-                                Lorem Ipsum
+                <?php foreach ($bands as $band): ?>
+                            <div class="home-blocks" class="bands">
+                                    <div class="Home-row-blocks">
+                                        <div class="Home-null"></div>
+                                        <a class="BAND" href="/bandProfile">
+                                            <div class="BAND-choose">
+                                                <img class="Band-icon" src="public/img/band.svg">
+                                                    <?=$band->getUsername();?>
+                                            </div>
+                                        </a>
+                                            <div class="Home-null"></div>
+                                    </div>
                             </div>
-                        </a>
-                        <a class="BAND">
-                            <!-- Musi być odnośnik  href-->
-                            <div class="BAND-choose">
-                                <img class="Band-icon" src="public/img/band.svg">
-                                Lorem Ipsum
-                            </div>
-                        </a>
-                        <div class="Home-null"></div>
-                    </div>
-                    <div class="Home-row-blocks">
-                        <div class="Home-null"></div>
-                        <a class="BAND">
-                            <!-- Musi być odnośnik  href-->
-                            <div class="BAND-choose">
-                                <img class="Band-icon" src="public/img/band.svg">
-                                Lorem Ipsum
-                            </div>
-                        </a>
-                        <a class="BAND">
-                            <!-- Musi być odnośnik  href-->
-                            <div class="BAND-choose">
-                                <img class="Band-icon" src="public/img/band.svg">
-                                Lorem Ipsum
-                            </div>
-                        </a>
-                        <div class="Home-null"></div>
-                    </div>
-                </div>
-            </div>
+                <?php endforeach; ?>
             <footer>
                 <a class="ButtonChange" href="changePassword">
                     Change password

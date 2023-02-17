@@ -10,9 +10,9 @@ Routing::get('index', 'DefaultController');
 Routing::get('chooseBandOrUser', 'DefaultController');
 
 
-Routing::get('homePage', 'BBController');
+Routing::get('homePage', 'BandsController');
 Routing::get('bandProfile','BBController');
-
+Routing::post('logout',"SecurityController");
 
 Routing::post('login',"SecurityController");
 Routing::post('registrationBand',"SecurityController");

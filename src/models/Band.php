@@ -11,9 +11,8 @@ class Band
     private $bandDescription;
     private $numberLikes;
 
-
     public function __construct(string $username,string $email,string $password, string $scheduleLink,
-                                string $ytLink,string $fanpageLink,string $bandDescription)
+                                string $ytLink,string $fanpageLink,string $bandDescription, int $numberLikes=0)
     {
         $this->username = $username;
         $this->email = $email;
@@ -22,7 +21,8 @@ class Band
         $this->ytLink = $ytLink;
         $this->fanpageLink = $fanpageLink;
         $this->bandDescription = $bandDescription;
-        $this->numberLikes=0;
+        $this->numberLikes=$numberLikes;
+
     }
 
 

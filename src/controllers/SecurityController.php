@@ -7,7 +7,7 @@ require_once __DIR__.'/../repository/UserRepository.php';
 require_once __DIR__.'/../repository/BandRepository.php';
 require_once __DIR__.'/../exceptions/NoMatchingRecordException.php';
 require_once __DIR__.'/../exceptions/CannotAddRecordException.php';
-
+session_start();
 class SecurityController extends SessionController
 {
     public function login()
@@ -297,6 +297,13 @@ class SecurityController extends SessionController
 
         $this->render('registrationUser',['messages'=>['Registration has benn passed successfully']]);
 
+    }
+
+
+    //TODO REPAIR
+    public function logout(){
+        session_destroy();
+        $this->changeHeader("login");
     }
 
     public function validatePassword(string $password):bool {

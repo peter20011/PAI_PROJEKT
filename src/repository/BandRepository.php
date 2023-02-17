@@ -2,6 +2,7 @@
 
 require_once 'Repository.php';
 require_once __DIR__.'/../models/Band.php';
+require_once __DIR__.'/../models/BandPage.php';
 require_once __DIR__.'/../exceptions/NoMatchingRecordException.php';
 require_once __DIR__.'/../exceptions/CannotAddRecordException.php';
 class BandRepository extends Repository
@@ -101,6 +102,30 @@ class BandRepository extends Repository
         }
 
         return true;
+    }
+
+    public function allBandsGet():array{
+        $result=[];
+
+        $stm = $this->database->connect()->prepare('SELECT * FROM band');
+        $stm->execute();
+        $bands=$stm->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($bands as $band){
+            $result[]= new BandPage(
+                $band['username'],
+                $band['email'],
+                $band['password'],
+                $band['schedule_link'],
+                $band['yt_link'],
+                $band['fb_link'],
+                $band['band_description'],
+                $band['likes'],
+                $band['id_band']
+            );
+        }
+
+        return $result;
     }
 
 

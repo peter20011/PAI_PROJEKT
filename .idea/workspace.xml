@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4fee69a1-3ae5-4f0f-ac6c-842005cef636" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/logout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/BandsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/BandPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Routing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/stylehomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/stylehomePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/homePage.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/homePage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/BBController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/BBController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/SessionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SessionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Band.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Band.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Permission.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/BandRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/BandRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/UserRepository.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e9a984e2-db52-4dad-9bf3-b3aeb0846480" />
+        <option name="url" value="https://github.com/peter20011/PAI_PROJEKT.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LZ7Pzwa0WQT5uPr38FJ3wSSDdf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/PAI_PROJEKT&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4fee69a1-3ae5-4f0f-ac6c-842005cef636" name="Changes" comment="" />
+      <created>1676066736895</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676066736895</updated>
+      <workItem from="1676066741405" duration="844000" />
+      <workItem from="1676123315309" duration="1738000" />
+      <workItem from="1676125360563" duration="10000" />
+      <workItem from="1676142011594" duration="10521000" />
+      <workItem from="1676205224518" duration="36516000" />
+      <workItem from="1676279536509" duration="42615000" />
+      <workItem from="1676364633564" duration="36164000" />
+      <workItem from="1676455673141" duration="25509000" />
+      <workItem from="1676540281115" duration="10027000" />
+      <workItem from="1676559330368" duration="4759000" />
+      <workItem from="1676564366829" duration="12000" />
+      <workItem from="1676564415823" duration="12912000" />
+      <workItem from="1676584650036" duration="4811000" />
+      <workItem from="1676590081119" duration="1678000" />
+      <workItem from="1676593584595" duration="4966000" />
+      <workItem from="1676625572293" duration="31446000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

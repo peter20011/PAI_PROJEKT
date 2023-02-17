@@ -4,10 +4,10 @@
 require_once 'AppController.php';
 require_once __DIR__.'/../models/User.php';
 require_once __DIR__.'/../models/Band.php';
-require_once __DIR__.'/../models/Permission.php';
 require_once __DIR__.'/../repository/UserRepository.php';
 require_once __DIR__.'/../repository/BandRepository.php';
 require_once __DIR__.'/../exceptions/NoMatchingRecordException.php';
+session_start();
 class SessionController extends AppController
 {
 
@@ -30,7 +30,6 @@ class SessionController extends AppController
             die();
         }
     }
-
 
     protected function getUserSession(){
         $userRepository = new UserRepository();
@@ -69,7 +68,5 @@ class SessionController extends AppController
         }
         return ["band" => $band];
     }
-    protected function destroySession(){
-        session_destroy();
-    }
+
 }
