@@ -28,7 +28,7 @@
                             <div class="home-blocks" class="bands">
                                     <div class="Home-row-blocks">
                                         <div class="Home-null"></div>
-                                        <a class="BAND" href="/bandProfile">
+                                        <a class="BAND" href="/bandProfile?id="<? $band->getId()?>>
                                             <div class="BAND-choose">
                                                 <img class="Band-icon" src="public/img/band.svg">
                                                     <?=$band->getUsername();?>

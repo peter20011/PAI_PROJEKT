@@ -7,7 +7,7 @@ require_once __DIR__.'/../repository/UserRepository.php';
 require_once __DIR__.'/../repository/BandRepository.php';
 require_once __DIR__.'/../exceptions/NoMatchingRecordException.php';
 require_once __DIR__.'/../exceptions/CannotAddRecordException.php';
-session_start();
+
 class SecurityController extends SessionController
 {
     public function login()
