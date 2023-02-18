@@ -10,6 +10,7 @@ Routing::get('index', 'DefaultController');
 Routing::get('chooseBandOrUser', 'DefaultController');
 Routing::get('homePage', 'BandsController');
 Routing::get('bandProfile','BBController');
+Routing::get('like','BBController');
 
 Routing::post('search','BandsController');
 Routing::post('logout',"SecurityController");

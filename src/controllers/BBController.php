@@ -2,6 +2,8 @@
 
 require_once 'SessionController.php';
 require_once __DIR__.'/../repository/BandRepository.php';
+require_once __DIR__.'/../exceptions/NoMatchingRecordException.php';
+require_once __DIR__.'/../exceptions/WorngParamertException.php';
 class BBController extends SessionController
 {
 
@@ -18,11 +20,25 @@ class BBController extends SessionController
         //$this->requiredSession();
         if(isset($_GET['id'])){
             $id=$_GET['id'];
-            $band=$this->bandRepository->getBandById($id);
-            return $this->render('bandProfile',['band'=>$band]);
-        }
 
-        $this->changeHeader('bandProfile');
+            if(is_integer($id)){
+                $this->changeHeader('logout');
+            }
+                try{
+                    $band=$this->bandRepository->getBandById($id);
+                }catch (NoMatchingRecordException | WorngParamertException $e ){
+                    $this->changeHeader('logout');
+                }
+                return $this->render('bandProfile',['band'=>$band]);
+
+            }
+
+         $this->changeHeader('logout');
+    }
+
+    public function like(int $id){
+        $this->bandRepository->like($id);
+        http_response_code(200);
     }
 
 

@@ -27,7 +27,7 @@ a:visited {
  color:inherit
 }
 
-button,a {
+button {
     border:none;
     color:var(--app-button-font-color);
     font-family:Quicksand,sans-serif;
@@ -196,7 +196,7 @@ width: 31rem;
     width: 50%;
 }
 
-.ButtonChange{
+.ButtonChange,ButtonBack{
     align-items: center;
     background-color: var(--app-acc-color);
     border-radius: 1.5rem;
@@ -213,7 +213,6 @@ width: 31rem;
     margin: 0 auto;
 }
 
-
 footer{
     margin: 15px 0;
 }
@@ -224,7 +223,7 @@ footer{
 }
 
 *{
-    font-size: 100px;
+    font-size: 60px;
 }
 
 

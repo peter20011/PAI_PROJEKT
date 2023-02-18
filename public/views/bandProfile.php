@@ -6,6 +6,7 @@
         <meta name="keywords" content="band">
         <title>BOOKBAND - BAND-Profile</title>
         <link rel="stylesheet"  type="text/css"  href="public/css/stylebandProfile.css">
+        <script type="text/javascript" src="public/js/logout.js" defer></script>
     </head>
     <body>
         <div id="TopBar">
@@ -28,30 +29,27 @@
                                     Visit our fanpage
                             </div>
                         </a>
-                        <a class="BAND">
-                            <!-- Musi być odnośnik  href-->
-                            <div class="BAND-choose" href="<?php echo $band->getYtLink()?>" target="_blank">
+                        <a class="BAND"  href="<?php echo $band->getYtLink()?>" target="_blank">
+                            <div class="BAND-choose">
                                 <img class="Band-icon" src="public/img/yt.svg">
                                 Check us on YT
                             </div>
                         </a>
                     </div>
                     <div class="Home-row-blocks">
-                        <a class="BAND" href="<?php echo $band->getScheduleLink()?>">
-                            <!-- Musi być odnośnik  href-->
+                        <a class="BAND" href="<?php echo $band->getScheduleLink()?>" target="_blank">
                             <div class="BAND-choose">
-                                <img class="Band-icon" src="public/img/calendar.svg" target="_blank">
+                                <img class="Band-icon" src="public/img/calendar.svg" >
                                 Check out our dates
                             </div>
                         </a>
-                        <a class="BAND">
-                            <!-- Musi być odnośnik  href-->
+                        <div class="BAND">
                             <div class="BAND-choose">
                                 <img class="Band-icon" src="public/img/like.svg">
                                 Like us
-                                <div class="counter" style="font-size: 30px;" >210</div>
+                                <div class="counter" style="font-size: 30px;" ><?php echo $band->getNumberLikes()?></div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="Band-describe">
@@ -59,9 +57,9 @@
                 </div>
             </div>
             <footer>
-                <button class="ButtonDelate" type="button">
+                <a class="ButtonBack" href="homePage">
                     Back
-                </button>
+                </a>
                 <button class="ButtonDelate" type="button">
                     Delate account
                 </button>

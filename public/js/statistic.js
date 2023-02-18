@@ -1,0 +1,1 @@
+const likeButtons=document.querySelector()

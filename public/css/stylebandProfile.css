@@ -168,7 +168,7 @@ width: 31rem;
 }
 
 
-button {
+button,.ButtonBack {
     border:none;
     color:var(--app-button-font-color);
     font-family:Quicksand,sans-serif;
@@ -176,7 +176,7 @@ button {
     outline:none
 }
 
-.ButtonDelate{
+.ButtonDelate,.ButtonBack{
     align-items: center;
     background-color: var(--app-acc-color);
     border-radius: 1.5rem;
@@ -193,6 +193,10 @@ button {
     margin: 0 auto;
     margin-bottom: 15px;
 }
+
+.ButtonBack{
+    width: 13%;
+}
 .footer{
     display: flex;
 }
@@ -200,7 +204,7 @@ button {
 @media only screen and (max-device-width: 440px ){
 
 *{
-    font-size: 80px;
+    font-size: 64px;
 }
 
 #container-page{
@@ -251,10 +255,10 @@ justify-content: center;
     margin-bottom: 15px;
 }
 
-.ButtonDelate{
+.ButtonDelate,.ButtonBack{
     height: 100%;
     width: 40%;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 

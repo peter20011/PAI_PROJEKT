@@ -138,7 +138,6 @@ class BandRepository extends Repository
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
     public function getBandById(int $id):Band{
 
         $stm = $this->database->connect()->prepare('SELECT * FROM band where id_band =:id');
@@ -162,8 +161,21 @@ class BandRepository extends Repository
             $band['schedule_link'],
             $band['yt_link'],
             $band['fb_link'],
-            $band['band_description']
+            $band['band_description'],
+            $band['likes']
         );
+    }
+
+    public function like(int $id){
+        $stm = $this->database->connect()->prepare('UPDATE band SET "likes" +1 WHERE id= :id ');
+        $stm->bindParam(':id', $id, PDO::PARAM_INT);
+        $stm->execute();
+
+        if ($stm->rowCount() == 0) {
+            throw new NoMatchingRecordException();
+        }
+
+        $band= $stm->fetch(PDO::FETCH_ASSOC);
     }
 
 
