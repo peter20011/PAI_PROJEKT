@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fee69a1-3ae5-4f0f-ac6c-842005cef636" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/logout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/stylebandProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/stylebandProfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/bandProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/bandProfile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/views/homePage.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/homePage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/registrationBand.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/registrationBand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/views/registrationUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/views/registrationUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/BBController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/BBController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/BandsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/BandsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/BandPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/BandPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/BandRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/BandRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +82,8 @@
       <workItem from="1676584650036" duration="4811000" />
       <workItem from="1676590081119" duration="1678000" />
       <workItem from="1676593584595" duration="4966000" />
-      <workItem from="1676625572293" duration="34966000" />
+      <workItem from="1676625572293" duration="43378000" />
+      <workItem from="1676711339679" duration="14423000" />
     </task>
     <servers />
   </component>

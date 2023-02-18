@@ -164,6 +164,7 @@ width: 31rem;
     width: 40%;
     position: sticky;
     font-size: 24px;
+    overflow-wrap: break-word;
 }
 
 

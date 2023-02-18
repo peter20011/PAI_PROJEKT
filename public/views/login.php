@@ -32,10 +32,10 @@
                                             ?>
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="text" name="email" placeholder="Email" >
+                                            <input class="Input_input" type="text" name="email" placeholder="Email"  required>
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input Input_input_password" type="password" name="password" placeholder="Password">
+                                            <input class="Input_input Input_input_password" type="password" name="password" placeholder="Password" required>
                                         </div>
                                         <label class="Login-checkBox">
                                             <input type="checkbox" onchange="toogleInput(this)">

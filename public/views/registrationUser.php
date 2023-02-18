@@ -33,16 +33,16 @@
                                             ?>
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="text"  name="username" placeholder="Username" ">
+                                            <input class="Input_input" type="text"  name="username" placeholder="Username" required>
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input" type="text" name="email" placeholder="Email">
+                                            <input class="Input_input" type="text" name="email" placeholder="Email" required>
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input Input_input_password" type="password"  name="password" placeholder="Password" >
+                                            <input class="Input_input Input_input_password" type="password"  name="password" placeholder="Password"  required>
                                         </div>
                                         <div class="Input-container">
-                                            <input class="Input_input Input_input_password" type="password" name="password2" placeholder=" Repeat password">
+                                            <input class="Input_input Input_input_password" type="password" name="password2" placeholder=" Repeat password" required>
                                         </div>
                                         <label class="SignUp-checkBox">
                                             <input type="checkbox" onchange="toogleInput(this)">

@@ -128,6 +128,46 @@ class BandRepository extends Repository
         return $result;
     }
 
+    public function getBandByName(string $searchName){
+
+        $searchName='%'.strtolower($searchName).'%';
+        $stm = $this->database->connect()->prepare('SELECT band.username FROM band WHERE LOWER(username) LIKE :search');
+        $stm->bindParam(':search', $searchName, PDO::PARAM_STR);
+        $stm->execute();
+
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    public function getBandById(int $id):Band{
+
+        $stm = $this->database->connect()->prepare('SELECT * FROM band where id_band =:id');
+        $stm->bindParam(':id', $id, PDO::PARAM_INT);
+        $stm->execute();
+
+        if ($stm->rowCount() == 0) {
+            throw new NoMatchingRecordException();
+        }
+
+        $band= $stm->fetch(PDO::FETCH_ASSOC);
+
+        if ($band == false) {
+            throw new NoMatchingRecordException();
+        }
+
+        return new Band(
+            $band['username'],
+            $band['email'],
+            $band['password'],
+            $band['schedule_link'],
+            $band['yt_link'],
+            $band['fb_link'],
+            $band['band_description']
+        );
+    }
+
+
+
 
 
 }

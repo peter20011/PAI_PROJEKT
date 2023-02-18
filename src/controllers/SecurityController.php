@@ -299,7 +299,6 @@ class SecurityController extends SessionController
 
     }
 
-
     //TODO REPAIR
     public function logout(){
         session_destroy();
