@@ -13,12 +13,13 @@ class BandsController extends SessionController
     }
 
     public function homePage(){
-        //$this->requiredSession();
+        $this->requiredSession();
         $bands=$this->bandRepository->allBandsGet();
         $this->render('homePage',['bands'=>$bands]);
     }
 
     public function search(){
+        $this->requiredSession();
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 
         if ($contentType === "application/json") {

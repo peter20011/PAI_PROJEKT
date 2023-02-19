@@ -20,7 +20,7 @@
                         <div class="PageContainer">
                             <section class="Login-section">
                                 <section class="ContainerBox">
-                                    <h1 class="Login-Title">Log in</h1>
+                                    <h1 class="Login-Title">Login</h1>
                                     <form class="Login-form" action="login" method="POST">
                                         <div class="messages">
                                             <?php

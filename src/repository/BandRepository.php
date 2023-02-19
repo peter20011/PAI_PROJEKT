@@ -138,7 +138,7 @@ class BandRepository extends Repository
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getBandById(int $id):Band{
+    public function getBandById(int $id):BandPage{
 
         $stm = $this->database->connect()->prepare('SELECT * FROM band where id_band =:id');
         $stm->bindParam(':id', $id, PDO::PARAM_INT);
@@ -154,7 +154,7 @@ class BandRepository extends Repository
             throw new NoMatchingRecordException();
         }
 
-        return new Band(
+        return new BandPage(
             $band['username'],
             $band['email'],
             $band['password'],
@@ -162,20 +162,21 @@ class BandRepository extends Repository
             $band['yt_link'],
             $band['fb_link'],
             $band['band_description'],
-            $band['likes']
+            $band['likes'],
+            $band['id_band']
         );
     }
 
-    public function like(int $id){
-        $stm = $this->database->connect()->prepare('UPDATE band SET "likes" +1 WHERE id= :id ');
+    public function like($id){
+        $stm = $this->database->connect()->prepare('UPDATE band SET "likes" ="likes"+1 WHERE id_band= :id ');
         $stm->bindParam(':id', $id, PDO::PARAM_INT);
         $stm->execute();
+    }
 
-        if ($stm->rowCount() == 0) {
-            throw new NoMatchingRecordException();
-        }
-
-        $band= $stm->fetch(PDO::FETCH_ASSOC);
+    public function delete($id){
+        $stm = $this->database->connect()->prepare('DELETE FROM band WHERE id_band= :id ');
+        $stm->bindParam(':id', $id, PDO::PARAM_INT);
+        $stm->execute();
     }
 
 

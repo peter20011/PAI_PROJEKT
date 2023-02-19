@@ -21,6 +21,7 @@ class SessionController extends AppController
         $_SESSION['auth']=true;
         $_SESSION['useremail']=$user->getEmail();
         $_SESSION['username']=$user->getUsername();
+        $_SESSION['role']=$user->getRole();
     }
 
     protected function requiredSession(){
@@ -53,6 +54,7 @@ class SessionController extends AppController
         $_SESSION['auth']=true;
         $_SESSION['useremail']=$band->getEmail();
         $_SESSION['username']=$band->getUsername();
+        $_SESSION['role']=3;
 
     }
 

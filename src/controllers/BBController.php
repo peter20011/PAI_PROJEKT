@@ -11,11 +11,11 @@ class BBController extends SessionController
 
     public function __construct()
     {
+        parent::__construct();
         $this->bandRepository = new BandRepository();
     }
 
 
-    //TODO
     public function bandProfile(){
         //$this->requiredSession();
         if(isset($_GET['id'])){
@@ -36,9 +36,25 @@ class BBController extends SessionController
          $this->changeHeader('logout');
     }
 
-    public function like(int $id){
-        $this->bandRepository->like($id);
-        http_response_code(200);
+    public function delete(){
+        //$this->requiredSession();
+        if(isset($_REQUEST['id'])){
+            $id=$_REQUEST['id'];
+            var_dump($id);
+            $this->bandRepository->delete($id);
+             return $this->changeHeader('homePage');
+        }
+    }
+
+    //TODO- security
+    public function like(){
+        //$this->requiredSession();
+        if(isset($_REQUEST['id'])){
+            $id=$_REQUEST['id'];
+            var_dump($id);
+            $this->bandRepository->like($id);
+        }
+
     }
 
 
