@@ -1,0 +1,276 @@
+@import url(https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap);
+
+:root {
+    --app-bg-color: #272729;
+    --app-bg-color-ligther: #303035;
+    --app-bg-color-darker: #202020;
+    --app-font-color: #faf7ff;
+    --app-font-family: "Quicksand",sans-serif;
+    --app-acc-color: #8685ef;
+    color: #faf7ff;
+    color: var(--app-font-color);
+    font-family: Quicksand,sans-serif;
+    font-family: var(--app-font-family);
+    font-size: 10px;
+    font-weight: 400;
+    background-color: #272729;
+    padding-top: 6.5vh;
+}
+
+a,
+a:visited {
+ outline:none;
+ text-decoration:inherit
+}
+:link>linktext,
+a,
+a:visited {
+ color:inherit
+}
+
+button {
+ border:none;
+ color:var(--app-button-font-color);
+ font-family:Quicksand,sans-serif;
+ font-family:var(--app-font-family);
+ outline:none;
+}
+
+.Page-topbar{
+flex-shrink: 0;
+justify-content: flex-end;
+padding: 3rem 7rem;
+position: relative;
+z-index: 1;
+}
+
+#root {
+    display:flex;
+}
+
+#container{
+    padding-top: 1.5%;
+}
+
+.PageContainer{
+align-items: center;
+border-radius: 1.5rem;
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+height: 100%;
+justify-content: center;
+margin: 0 5rem 4.5rem;
+width: calc(100% - 14rem);
+}
+
+.Registration-section{
+align-items: center;
+border-radius: 1.5rem;
+box-sizing: border-box;
+display: flex;
+flex-direction: row;
+height: 100%;
+justify-content: space-around;
+padding: 0;
+width: 50%;
+}
+
+
+.ContainerBox{
+background-color: var(--app-bg-color);
+box-shadow: -10px 10px 20px #1f1f2133,10px -10px 20px #1f1f2133,
+            -10px -10px 20px #2f2f31e6,10px 10px 25px #1f1f21e6,inset 1px 1px 2px #2f2f314d,inset -1px -1px 2px #1f1f2180;
+            align-items: center;
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 6rem;
+width: 60em;
+}
+
+.SignUp-Title{
+font-size: 4em;
+font-weight: 600;
+line-height: 1.5em;
+margin: 0 0 .6em;
+}
+
+
+.SignUp-form{
+display: flex;
+flex-direction: column;
+gap: 2.6em;
+justify-content: space-between;
+text-align: center;
+width: 42em;
+}
+
+.Input-container{
+    position: relative;
+}
+
+.Input_input{
+background-color: var(--app-bg-color-darker);
+border: none;
+border-radius: 15px;
+box-sizing: border-box;
+color: var(--app-font-color);
+font-family: var(--app-font-family);
+font-size: 2em;
+font-weight: 600;
+outline: none;
+padding: 1.1em;
+box-shadow: inset 0 0 6px hsla(0,0%,100%,.2);
+}
+
+.SignUp-checkBox{
+margin-top: .2em;
+cursor: pointer;
+margin: 0 .8em 0 0;
+position: relative;
+vertical-align: bottom;
+}
+
+.SignUp-formOptions{
+align-items: center;
+display: flex;
+flex-direction: row;
+height: 5rem;
+justify-content: space-between;
+}
+
+.ButtonSignUp{
+align-items: center;
+background-color: var(--app-acc-color);
+border-radius: 1.5rem;
+box-shadow: -5px 5px 10px #1d1d1d33,5px -5px 10px #1d1d1d33,-5px -5px 10px #232323e6,5px 5px 13px #1d1d1de6,inset 1px 1px 2px #2323234d,inset -1px -1px 2px #1d1d1d80;
+box-sizing: border-box;
+display: flex;
+font-size: 2.4rem;
+font-weight: 500;
+height: 4rem;
+justify-content: center;
+overflow: hidden;
+padding: 0 2rem;
+text-transform: uppercase;
+white-space: nowrap;
+}
+
+.SignUp-optionlink{
+align-items: flex-end;
+display: flex;
+flex-direction: column;
+height: 100%;
+justify-content: space-between;
+padding-right: 1em;
+flex-direction: column;
+justify-content: flex-start;
+font-size: 1.5em;
+padding-top: 1.5em;
+}
+
+
+
+.Login-logo{
+    height: 40vh;
+    margin-left: 15vw;
+}
+
+.Logo-small{
+    display: none ;
+}
+
+.Page-Title-Bar{
+display: inline;
+font-size: 5.5rem;
+font-weight: 600;
+height: 8rem;
+justify-content: flex-start;
+width: 100%;
+margin-bottom: 4vh;
+padding-left: 36%;
+}
+
+.no-valid{
+    border: 3px solid red;
+    border-radius: 1em ;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
+}
+
+
+@media only screen and (max-device-width: 440px ){
+
+    :root{
+        padding-top: 3vh;
+    }
+    .Page-topbar{
+        margin-top: 0;
+    }
+
+    .Login-logo{
+        display: none;
+    }
+
+    .SignUp-form{
+        height: auto;
+        width: auto;
+    }
+    
+    .PageContainer{
+
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    *{
+        font-size: 28px;
+    }
+
+    .ButtonSignUp{
+        height: 140%;
+        width: 55%;
+        font-size: 5rem;
+    }
+
+    .Login-formOptions{
+        height: 5rem;
+    }
+
+
+    input[type=checkbox]{
+        width: 2vh;
+        height: 2vh;
+    }
+
+
+
+    .SignUp-Title{
+        text-align: center;
+        font-size: 3em;
+    }
+
+    .SignUp-optionlink{
+        display: flex;
+        padding-top: 0.25em;
+        font-size: 4vh;
+    }
+    
+    .Logo-small{
+        margin-bottom: 4rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding: auto;
+        display: flex;
+        height: 30vh;
+        text-align: center;
+    }
+
+    .Page-Title-Bar{
+        display: none;
+    }
+}
