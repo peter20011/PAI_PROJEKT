@@ -2,6 +2,7 @@
 
 require_once 'SessionController.php';
 require_once __DIR__.'/../repository/BandRepository.php';
+require_once __DIR__.'/../repository/UserRepository.php';
 require_once __DIR__.'/../exceptions/NoMatchingRecordException.php';
 require_once __DIR__.'/../exceptions/WorngParamertException.php';
 class BBController extends SessionController
@@ -15,9 +16,8 @@ class BBController extends SessionController
         $this->bandRepository = new BandRepository();
     }
 
-
     public function bandProfile(){
-        //$this->requiredSession();
+        $this->requiredSession();
         if(isset($_GET['id'])){
             $id=$_GET['id'];
 
@@ -37,27 +37,31 @@ class BBController extends SessionController
     }
 
     public function delete(){
-        //$this->requiredSession();
-        if(isset($_REQUEST['id'])){
-            $id=$_REQUEST['id'];
-            var_dump($id);
+        $this->requiredSession();
+
+        if (isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
+            if(!$this->bandRepository->ifExists($id)){
+                return $this->changeHeader('homepage');
+            }
             $this->bandRepository->delete($id);
-             return $this->changeHeader('homePage');
+            return $this->changeHeader('homePage');
         }
+
+        return $this->changeHeader('login');
+
     }
 
-    //TODO- security
     public function like(){
-        //$this->requiredSession();
+        $this->requiredSession();
         if(isset($_REQUEST['id'])){
             $id=$_REQUEST['id'];
-            var_dump($id);
+            if(!$this->bandRepository->ifExists($id)){
+                return $this->changeHeader('homepage');
+            }
             $this->bandRepository->like($id);
         }
+        return $this->changeHeader('login');
 
     }
-
-
-
-
 }

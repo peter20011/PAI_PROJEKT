@@ -11,7 +11,6 @@ session_start();
 class SessionController extends AppController
 {
 
-    //for user
     protected function createSession(User $user){
         session_start();
         if(isset($_SESSION['auth'])){

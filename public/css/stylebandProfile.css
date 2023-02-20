@@ -192,6 +192,7 @@ button,.ButtonBack {
     text-transform: uppercase;
     margin: 0 auto;
     margin-bottom: 15px;
+    width: 15%;
 }
 
 .ButtonBack{

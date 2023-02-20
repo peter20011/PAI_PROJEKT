@@ -179,6 +179,18 @@ class BandRepository extends Repository
         $stm->execute();
     }
 
+    public function ifExists(int $id): bool{
+        $stm = $this->database->connect()->prepare('SELECT * FROM band where id_band= :id');
+        $stm->bindParam(':id', $id, PDO::PARAM_STR);
+        $stm->execute();
+
+        if ($stm->rowCount() == 0) {
+            return false;
+        }
+
+        return true;
+    }
+
 
 
 

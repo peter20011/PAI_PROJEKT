@@ -98,19 +98,15 @@ fbLink.addEventListener('change',()=>validateURL(fbLink));
 
 function required(str)
 {
-    console.log(str);
     if (str.length == 0)
     {
         return false;
     }
 
     return true;
-
-
 }
 
 function validateDescription(element){
-    console.log(element);
     setTimeout(
         function(){
             markValidation(element, required(element.value));
